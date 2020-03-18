@@ -101,6 +101,6 @@ Numar_Complex Numar_Complex::operator/(Numar_Complex a)
 
 int main()
 {
-
+  
     return 0;
 }

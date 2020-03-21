@@ -52,16 +52,16 @@ public:
     {
         double a, b;
         if (imaginar == 0)
-            cout << real;
+            out << real;
 
         else if (real == 0)
-                cout << imaginar << "i";
+                out << imaginar << "i";
 
         else
         {
-            cout << real <<" ";
-            if(imaginar > 0) cout<<"+";
-            cout<<imaginar<<"*i";
+            out << real <<" ";
+            if(imaginar > 0) out<<"+";
+            out<<imaginar<<"*i";
         }
         return out;
     }

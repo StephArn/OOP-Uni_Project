@@ -50,7 +50,6 @@ public:
 
     ostream& afisare(ostream& out)
     {
-        double a, b;
         if (imaginar == 0)
             out << real;
 

@@ -15,11 +15,7 @@ public:
         imaginar = im;
     }
     // constructor de copiere:
-    Numar_Complex(const Numar_Complex& ob)
-    {
-        this->real = ob.real;
-        this->imaginar = ob.imaginar;
-    }
+    Numar_Complex(const Numar_Complex& ob) = default;
 
     void setReal(double r)
     {
@@ -40,6 +36,8 @@ public:
     {
         return imaginar;
     }
+    
+    Numar_Complex& operator=(const Numar_Complex&) = default;
 
     friend Numar_Complex operator+(Numar_Complex a, Numar_Complex b);
     friend Numar_Complex operator*(Numar_Complex a, Numar_Complex b);

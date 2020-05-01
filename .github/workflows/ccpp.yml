@@ -1,29 +1,13 @@
-name: C/C++ CI
-
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
+steps:
     - uses: actions/checkout@v2
     - name: dependencies
       run:
         sudo apt-get install -y valgrind cppcheck g++-9 cmake
-    - name: configure
-      run:
-        cmake .
     - name: make
-      run: make
+      run: g++ -Wall -Wextra -pedantic -std=c++17 *.cpp -o main -g
     - name: cppcheck
       run:
-        cppcheck --enable=all -i cmake-build-debug/ .
+        cppcheck --enable=all .
     - name: valgrind
       run:
-        valgrind -v --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(grep "add_executable" CMakeLists.txt | awk '{print $1}' | sed s/.*\(//)
+        valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --error-exitcode=1 ./main

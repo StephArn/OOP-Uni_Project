@@ -1,11 +1,13 @@
+#ifndef TEMAPOO2_COMPLEX_H
+#define TEMAPOO2_COMPLEX_H
 #include <iostream>
 
 class Complex
 {
-	float real, imaginar;
+    int real, imaginar;
 public:
     // constructor de initializare:
-    explicit Complex(float re = 0, float im = 0);
+    explicit Complex(int re = 0, int im = 0);
 
     // constructor de copiere:
     Complex(const Complex& ob);
@@ -16,6 +18,8 @@ public:
     //supraincarcare =:
     Complex& operator=(const Complex&);
 
-    friend istream& operator >> (istream & in, Complex & nr);
-    friend ostream& operator << (ostream & out, Complex & nr);
+    friend std::istream& operator >> (std::istream& in, Complex& nr);
+    friend std::ostream& operator << (std::ostream& out, Complex& nr);
 };
+
+#endif //! TEMAPOO2_COMPLEX_H

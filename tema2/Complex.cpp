@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Complex.h"
 
-Complex::Complex(int re, int im)
+Complex::Complex(float re, float im)
 {
     real = re;
     imaginar = im;

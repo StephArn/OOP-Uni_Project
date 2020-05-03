@@ -2,7 +2,7 @@
 
 #define TEMAPOO2_MATRICE_H
 
-
+#include <iostream>
 #include "Complex.h"
 class Matrice
 {

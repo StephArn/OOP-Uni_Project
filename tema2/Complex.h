@@ -4,10 +4,10 @@
 
 class Complex
 {
-    int real, imaginar;
+    float real, imaginar;
 public:
     // constructor de initializare:
-    explicit Complex(int re = 0, int im = 0);
+    explicit Complex(float re = 0, float im = 0);
 
     // constructor de copiere:
     Complex(const Complex& ob);

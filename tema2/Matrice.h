@@ -2,7 +2,7 @@
 
 #define TEMAPOO2_MATRICE_H
 
-#include <iostream>
+
 #include "Complex.h"
 class Matrice
 {
@@ -17,13 +17,23 @@ public:
 
     virtual ~Matrice();
 
-    friend std::ostream& operator <<(std::ostream& output, const Matrice& mat);
+    friend std::ostream& operator <<(std::ostream&, const Matrice&);
 
-    friend std::istream& operator >>(std::istream& input, Matrice& mat);
+    friend std::istream& operator >>(std::istream&, Matrice&);
 
-    virtual void verifica(Matrice& matrice);
+    Matrice& operator =(Matrice&);
 
-    //Matrice& operator =(Matrice mat);
+    virtual int verifica_triunghiulara()=0;
+
+    virtual void verifica_diagonala()=0;
+
+    friend void swap(Matrice&, Matrice&);
+
+    int get_lin();
+    int get_col();
+    Complex** get_mat();
+
+    
 
 };
 

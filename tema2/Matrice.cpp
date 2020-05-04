@@ -3,8 +3,6 @@
 #include "Complex.h"
 
 
-void Matrice::verifica(Matrice& matrice) {}
-
 Matrice::Matrice(int col, int lin, Complex nr) : col{col}, lin{lin} {
     v = new Complex * [col];
     for (int i = 0; i < col; i++)
@@ -36,6 +34,17 @@ Matrice::Matrice(const Matrice& mat) {
 
 }
 
+void swap(Matrice& a, Matrice& b) {
+    std::swap(a.lin, b.lin);
+    std::swap(a.col, b.col);
+    std::swap(a.v, b.v);
+}
+
+Matrice& Matrice::operator =(Matrice &ob) {
+    swap(*this, ob);
+    return *this;
+}
+
 std::istream& operator >>(std::istream& input, Matrice& mat) {
 
     input >> mat.lin >> mat.col;
@@ -57,4 +66,14 @@ std::ostream& operator <<(std::ostream& output, const Matrice& mat) {
     return output;
 }
 
+int Matrice::get_lin() {
+    return lin;
+}
 
+int Matrice::get_col() {
+    return col;
+}
+
+Complex** Matrice::get_mat() {
+    return v;
+}

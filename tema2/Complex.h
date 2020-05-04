@@ -1,6 +1,5 @@
 #ifndef TEMAPOO2_COMPLEX_H
 #define TEMAPOO2_COMPLEX_H
-#include <iostream>
 
 class Complex
 {
@@ -20,6 +19,18 @@ public:
 
     friend std::istream& operator >> (std::istream& in, Complex& nr);
     friend std::ostream& operator << (std::ostream& out, Complex& nr);
+
+    friend Complex operator+(Complex a, Complex b);
+    friend Complex operator*(Complex a, Complex b);
+    friend Complex operator*(int a, Complex b);
+
+    friend bool operator==(const Complex& a, const Complex& b);
+    friend bool operator!=(const Complex& a, const Complex& b);
+
+    void setReal(float r);
+    void setImaginar(float i);
+    double getReal();
+    double getImaginar();
 };
 
 #endif //! TEMAPOO2_COMPLEX_H

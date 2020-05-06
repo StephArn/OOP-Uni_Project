@@ -18,7 +18,7 @@ public:
 
     Matrice_patratica& operator=( Matrice_patratica&);
 
-    friend std::ostream& operator <<(std::ostream& output, const Matrice_patratica& mat);
+    friend std::ostream& operator <<(std::ostream& output, Matrice_patratica& mat);
 
     friend std::istream& operator >>(std::istream& input, Matrice_patratica& mat);
 
@@ -26,7 +26,8 @@ public:
 
     void verifica_diagonala()override;
 
-    Complex det(Matrice_patratica,int);
+    Complex det(Matrice_patratica matrix,int n);
+
 };
 
 

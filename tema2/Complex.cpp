@@ -25,22 +25,22 @@ std::ostream& operator<<(std::ostream & out, Complex & nr)
     return out;
 }
 
-void Complex::setReal(double r)
+void Complex::setReal(float r)
 {
     real = r;
 }
 
-void Complex::setImaginar(double i)
+void Complex::setImaginar(float i)
 {
     imaginar = i;
 }
 
-double getReal()
+float Complex::getReal()
 {
     return real;
 }
 
-double getImaginar()
+float Complex::getImaginar()
 {
     return imaginar;
 }
@@ -51,6 +51,11 @@ Complex operator+(Complex a, Complex b)
     sum.setReal(a.real + b.real);
     sum.setImaginar(a.imaginar + b.imaginar);
     return sum;
+}
+
+Complex operator*(int a, Complex b)
+{
+    return Complex(b.real * a, b.imaginar * a);
 }
 
 Complex operator*(Complex a, Complex b)
@@ -69,11 +74,6 @@ Complex operator*(Complex a, Complex b)
         prod.setImaginar(a.real * b.imaginar + b.real * a.imaginar);
     }
     return prod;
-}
-
-Complex operator*(double a, Complex b)
-{
-    return Complex(b.real * a, b.imaginar * a);
 }
 
 bool operator==(const Complex& a, const Complex& b)

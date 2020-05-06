@@ -1,4 +1,6 @@
 #include "Matrice_patratica.h"
+#include <cmath>
+
 Matrice_patratica::Matrice_patratica(int dim) : dim(dim) {
     v = new Complex * [dim];
     for (int i = 0; i < dim; i++)
@@ -20,7 +22,6 @@ Matrice_patratica::Matrice_patratica(const Matrice_patratica& ob) {
 }
 
 Matrice_patratica ::~Matrice_patratica() {
-    std::cout << "destr";
     for (int i = 0; i < dim - 1; i++)
         delete[] v[i];
     delete[] v;
@@ -45,11 +46,15 @@ std::istream& operator >>(std::istream& input, Matrice_patratica& mat) {
     return input;
 }
 
-std::ostream& operator <<(std::ostream& output, const Matrice_patratica& mat) {
+std::ostream& operator <<(std::ostream& output, Matrice_patratica& mat) {
     for (int i = 0; i < mat.dim; i++) {
         for (int j = 0; j < mat.dim; j++)
             output << mat.v[i][j] << " ";
         output << '\n';
+        Complex d = mat.det(mat, mat.dim);
+        output << "Determinantul este: ";
+        output << d;
+
     }
     return output;
 }
@@ -87,7 +92,7 @@ int Matrice_patratica::verifica_triunghiulara() {
 }
 
 void Matrice_patratica::verifica_diagonala() {
-    int triunghiulara, i, j;
+    int triunghiulara;
     triunghiulara = verifica_triunghiulara();
     if (triunghiulara == 3)
     {
@@ -102,15 +107,23 @@ void Matrice_patratica::verifica_diagonala() {
     else std::cout << "Matricea nu este nici triunghiulara, nici diagonala.";
 }
 
-Complex Matrice_patratica:: det(Matrice_patratica matrix, int n)
+Complex Matrice_patratica::det(Matrice_patratica matrix, int n)
 {
     int rez = verifica_triunghiulara();
-    if (rez > 0) return Complex(0, 0);
+    if (rez > 0)
+    {
+      int i;
+      Complex d=Complex(1,0);
+      for(i = 0; i < n; i++){
+        d = d * matrix.v[i][i];
+
+      }
+      return d;
+    }
 
     Complex determinant;
     Matrice_patratica submatrix;
-    if (n == 2)
-        return ((matrix.v[0][0] * matrix.v[1][1]) + (-1)*matrix.v[1][0] * matrix.v[0][1]));
+    if (n == 2) return matrix.v[0][0] * matrix.v[1][1] + (-1) * matrix.v[1][0] * matrix.v[0][1];
     else {
         for (int x = 0; x < n; x++) {
             int subi = 0;
@@ -124,7 +137,8 @@ Complex Matrice_patratica:: det(Matrice_patratica matrix, int n)
                 }
                 subi++;
             }
-            determinant = determinant + (pow(-1, x) * matrix.v[0][x] * det(submatrix, n - 1));
+            determinant = determinant + Complex((pow(-1, x), 0) * matrix.v[0][x] * det(submatrix, n - 1));
         }
     }
     return determinant;
+}

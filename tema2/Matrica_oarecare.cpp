@@ -1,18 +1,23 @@
 #include "Matrice_oarecare.h"
 
 Matrice_oarecare ::~Matrice_oarecare() {
-    Matrice ::~Matrice();
+    for (int i = 0; i < col; i++)
+        delete[] v[i];
+    delete[] v;
+    col = 0;
+    lin = 0;
 
 }
 Matrice_oarecare::Matrice_oarecare(const Matrice_oarecare& ob) = default;
 
 Matrice_oarecare& Matrice_oarecare::operator =(Matrice_oarecare& ob) {
+    
     swap(*this, ob);
     return *this;
 }
 
 std::istream& operator >>(std::istream& input, Matrice_oarecare& mat) {
-
+   
     input >> mat.lin >> mat.col;
     mat.v = new Complex * [mat.col];
     for (int i = 0; i < mat.lin; i++)
@@ -65,7 +70,7 @@ int Matrice_oarecare::verifica_triunghiulara() {
 }
 
 void Matrice_oarecare::verifica_diagonala() {
-    int triunghiulara, i, j;
+    int triunghiulara;
     triunghiulara = verifica_triunghiulara();
     if (triunghiulara == 3)
     {

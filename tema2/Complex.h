@@ -29,8 +29,8 @@ public:
 
     void setReal(float r);
     void setImaginar(float i);
-    double getReal();
-    double getImaginar();
+    float getReal();
+    float getImaginar();
 };
 
 #endif //! TEMAPOO2_COMPLEX_H

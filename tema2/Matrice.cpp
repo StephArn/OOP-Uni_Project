@@ -13,7 +13,6 @@ Matrice::Matrice(int col, int lin, Complex nr) : col{col}, lin{lin} {
 }
 
 Matrice ::~Matrice() {
-  std :: cout <<"destr";
     for (int i = 0; i < col; i++)
         delete[] v[i];
     delete[] v;
@@ -22,7 +21,7 @@ Matrice ::~Matrice() {
 
 }
 
-Matrice::Matrice(const Matrice& mat) {
+Matrice::Matrice(const Matrice &mat) {
     col = mat.col;
     lin = mat.lin;
     v = new Complex * [col];
@@ -48,9 +47,9 @@ Matrice& Matrice::operator =(Matrice &ob) {
 std::istream& operator >>(std::istream& input, Matrice& mat) {
 
     input >> mat.lin >> mat.col;
-    mat.v = new Complex * [mat.col];
+    mat.v = new Complex* [mat.lin];
     for (int i = 0; i < mat.lin; i++)
-        mat.v[i] = new Complex[mat.lin];
+        mat.v[i] = new Complex[mat.col];
     for (int i = 0; i < mat.lin; i++)
         for (int j = 0; j < mat.col; j++)
             input >> mat.v[i][j];

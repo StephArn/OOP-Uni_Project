@@ -12,9 +12,9 @@ class Matrice_patratica : public Matrice {
 public:
     explicit Matrice_patratica(int dim = 1);
 
-    Matrice_patratica(const Matrice_patratica&);
+    Matrice_patratica(const Matrice_patratica&) = default;;
 
-    ~Matrice_patratica();
+    ~Matrice_patratica() = default;
 
     Matrice_patratica& operator=( Matrice_patratica&);
 

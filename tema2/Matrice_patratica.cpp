@@ -1,5 +1,4 @@
 #include "Matrice_patratica.h"
-#include <cmath>
 
 Matrice_patratica::Matrice_patratica(int dim) : dim(dim) {
     v = new Complex * [dim];
@@ -8,24 +7,6 @@ Matrice_patratica::Matrice_patratica(int dim) : dim(dim) {
     for (int i = 0; i < dim; i++)
         for (int j = 0; j < dim; j++)
             v[i][j] = Complex(0, 0);
-}
-
-Matrice_patratica::Matrice_patratica(const Matrice_patratica& ob) {
-    dim = ob.dim;
-    v = new Complex * [dim];
-    for (int i = 0; i < dim; i++)
-        v[i] = new Complex[dim];
-    for (int i = 0; i < dim; i++)
-        for (int j = 0; j < dim; j++)
-            v[i][j] = ob.v[i][j];
-
-}
-
-Matrice_patratica ::~Matrice_patratica() {
-    for (int i = 0; i < dim - 1; i++)
-        delete[] v[i];
-    delete[] v;
-    dim = 0;
 }
 
 Matrice_patratica& Matrice_patratica:: operator=( Matrice_patratica& ob) {
@@ -110,16 +91,7 @@ void Matrice_patratica::verifica_diagonala() {
 Complex Matrice_patratica::det(Matrice_patratica matrix, int n)
 {
     int rez = verifica_triunghiulara();
-    if (rez > 0)
-    {
-      int i;
-      Complex d=Complex(1,0);
-      for(i = 0; i < n; i++){
-        d = d * matrix.v[i][i];
-
-      }
-      return d;
-    }
+    if (rez > 0) return Complex(0, 0);
 
     Complex determinant;
     Matrice_patratica submatrix;

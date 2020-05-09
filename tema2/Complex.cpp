@@ -7,12 +7,6 @@ Complex::Complex(float re, float im)
     imaginar = im;
 }
 
-Complex::Complex(const Complex& ob) = default;
-
-Complex::~Complex() = default;
-
-Complex& Complex::operator=(const Complex&) = default;
-
 std::istream& operator>>(std::istream & in, Complex & nr)
 {
     in >> nr.real >> nr.imaginar;

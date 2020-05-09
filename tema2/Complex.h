@@ -9,13 +9,13 @@ public:
     explicit Complex(float re = 0, float im = 0);
 
     // constructor de copiere:
-    Complex(const Complex& ob);
+    Complex(const Complex& ob) = default;
 
     //destuctor:
-    ~Complex();
+    ~Complex() = default;
 
     //supraincarcare =:
-    Complex& operator=(const Complex&);
+    Complex& operator=(const Complex&) = default;
 
     friend std::istream& operator >> (std::istream& in, Complex& nr);
     friend std::ostream& operator << (std::ostream& out, Complex& nr);

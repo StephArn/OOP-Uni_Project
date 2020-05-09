@@ -8,9 +8,9 @@ class Matrice_oarecare :public Matrice
 	int lin, col;
     explicit Matrice_oarecare(int col = 1, int lin = 1) : Matrice(col, lin) {};
 
-    Matrice_oarecare(const Matrice_oarecare&);
+    Matrice_oarecare(const Matrice_oarecare&) = default;
 
-    ~Matrice_oarecare();
+    ~Matrice_oarecare() = default;
 
     Matrice_oarecare& operator =(Matrice_oarecare& ob);
 

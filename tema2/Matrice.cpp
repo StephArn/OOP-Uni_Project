@@ -21,7 +21,7 @@ Matrice ::~Matrice() {
 
 }
 
-Matrice::Matrice(const Matrice &mat) {
+Matrice::Matrice(const Matrice& mat) {
     col = mat.col;
     lin = mat.lin;
     v = new Complex * [col];
@@ -45,7 +45,9 @@ Matrice& Matrice::operator =(Matrice &ob) {
 }
 
 std::istream& operator >>(std::istream& input, Matrice& mat) {
-
+    for (int i = 0; i < mat.lin; i++)
+        delete[] mat.v[i];
+    delete[] mat.v;
     input >> mat.lin >> mat.col;
     mat.v = new Complex* [mat.lin];
     for (int i = 0; i < mat.lin; i++)

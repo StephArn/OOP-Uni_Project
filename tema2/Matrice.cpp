@@ -21,7 +21,7 @@ Matrice ::~Matrice() {
 
 }
 
-Matrice::Matrice(const Matrice& mat) {
+Matrice::Matrice(const Matrice &mat) {
     col = mat.col;
     lin = mat.lin;
     v = new Complex * [col];
@@ -33,14 +33,13 @@ Matrice::Matrice(const Matrice& mat) {
 
 }
 
-void swap(Matrice& a, Matrice& b) {
-    std::swap(a.lin, b.lin);
-    std::swap(a.col, b.col);
-    std::swap(a.v, b.v);
-}
-
-Matrice& Matrice::operator =(Matrice &ob) {
-    swap(*this, ob);
+Matrice& Matrice::operator =(Matrice& ob) {
+    if (this == &ob) return *this;
+    lin = ob.lin;
+    col = ob.col;
+    for(int i = 0; i < col; i++)
+        for (int j = 0; j < lin; j++)
+            v[i][j] = ob.v[i][j];
     return *this;
 }
 

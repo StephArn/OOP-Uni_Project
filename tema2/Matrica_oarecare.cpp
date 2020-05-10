@@ -1,21 +1,5 @@
 #include "Matrice_oarecare.h"
 
-Matrice_oarecare ::~Matrice_oarecare() {
-    for (int i = 0; i < col; i++)
-        delete[] v[i];
-    delete[] v;
-    col = 0;
-    lin = 0;
-
-}
-Matrice_oarecare::Matrice_oarecare(const Matrice_oarecare& ob) = default;
-
-Matrice_oarecare& Matrice_oarecare::operator =(Matrice_oarecare& ob) {
-    
-    swap(*this, ob);
-    return *this;
-}
-
 std::istream& operator >>(std::istream& input, Matrice_oarecare& mat) {
    
     input >> mat.lin >> mat.col;

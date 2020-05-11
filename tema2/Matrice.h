@@ -21,13 +21,13 @@ public:
 
     friend std::istream& operator >>(std::istream&, Matrice&);
 
-    Matrice& operator =(Matrice&);
+    Matrice& operator =(Matrice const &ob);
 
     virtual int verifica_triunghiulara()=0;
 
     virtual void verifica_diagonala()=0;
 
-    friend void swap(Matrice&, Matrice&);
+    //friend void swap(Matrice&, Matrice&);
 
     int get_lin();
     int get_col();

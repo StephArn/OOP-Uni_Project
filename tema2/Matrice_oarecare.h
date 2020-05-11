@@ -1,12 +1,14 @@
 #pragma once
-#include <iostream>
-#include "Matrice.h"
+
 #ifndef TEMAPOO2_MATRICE_OARECARE_H
 #define TEMAPOO2_MATRICE_OARECARE_H
+#include <iostream>
+#include "Matrice.h"
+
 class Matrice_oarecare :public Matrice
 {
-	int lin, col;
-    explicit Matrice_oarecare(int col = 1, int lin = 1) : Matrice(col, lin) {};
+public:
+    explicit Matrice_oarecare(int col = 1, int lin = 1) : Matrice(col, lin, Complex(0, 0)) {};
 
     Matrice_oarecare(const Matrice_oarecare&) = default;
 

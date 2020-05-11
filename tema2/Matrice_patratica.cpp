@@ -1,4 +1,5 @@
 #include "Matrice_patratica.h"
+#include <cmath>
 
 /*Matrice_patratica::Matrice_patratica(int dim) : dim(dim) {
     v = new Complex * [dim];
@@ -20,41 +21,35 @@ Matrice_patratica Matrice_patratica:: operator=(Matrice_patratica ob) {
     return *this;
 }
  */
-Matrice_patratica& Matrice_patratica:: operator=(Matrice_patratica const& ob)
-{
-    if (this != &ob) {
-        (*this).Matrice::operator=(ob);
-    }
-    return *this;
-}
+
 std::istream& operator >>(std::istream& input, Matrice_patratica& mat) {
 
-    input >> mat.dim;
-    mat.v = new Complex * [mat.dim];
-    for (int i = 0; i < mat.dim; i++)
-        mat.v[i] = new Complex[mat.dim];
-    for (int i = 0; i < mat.dim; i++)
-        for (int j = 0; j < mat.dim; j++)
+    input >> mat.col;
+    mat.v = new Complex * [mat.col];
+    for (int i = 0; i < mat.col; i++)
+        mat.v[i] = new Complex[mat.col];
+    for (int i = 0; i < mat.col; i++)
+        for (int j = 0; j < mat.col; j++)
             input >> mat.v[i][j];
     return input;
 }
 
 std::ostream& operator <<(std::ostream& output, Matrice_patratica& mat) {
-    for (int i = 0; i < mat.dim; i++) {
-        for (int j = 0; j < mat.dim; j++)
+    for (int i = 0; i < mat.col; i++) {
+        for (int j = 0; j < mat.col; j++)
             output << mat.v[i][j] << " ";
         output << '\n';
-        Complex d = mat.det(mat, mat.dim);
-        output << "Determinantul este: ";
-        output << d;
-
     }
+    Complex d = mat.det(mat, mat.col);
+    output << "Determinantul este: ";
+    output << d;
+    output << '\n';
     return output;
 }
 
 int Matrice_patratica::verifica_triunghiulara() {
     int i, j, ok1 = 1, ok2 = 1, rez;
-    for (i = 1; i < dim; i++) {
+    for (i = 1; i < col; i++) {
         for (j = 0; j < i; j++) {
             if (v[i][j] != Complex(0, 0)) {
                 ok1 = 0;
@@ -64,8 +59,8 @@ int Matrice_patratica::verifica_triunghiulara() {
         }
     }
 
-    for (i = 0; i < dim - 1; i++) {
-        for (j = i + 1; j < dim; j++) {
+    for (i = 0; i < col - 1; i++) {
+        for (j = i + 1; j < col; j++) {
             if (v[i][j] != Complex(0, 0)) {
                 ok2 = 0;
                 break;
@@ -103,10 +98,19 @@ void Matrice_patratica::verifica_diagonala() {
 Complex Matrice_patratica::det(Matrice_patratica matrix, int n)
 {
     int rez = verifica_triunghiulara();
-    if (rez > 0) return Complex(0, 0);
+    if (rez > 0) {
+        Complex diag_princip(1,0);
+            int i;
+        for (i = 0; i < n; i++)
+        {
+            diag_princip = diag_princip * matrix.v[i][i];
+        }
+        return diag_princip;
+    }
 
     Complex determinant;
     Matrice_patratica submatrix;
+    submatrix.col = n-1;
     if (n == 2) {
         Complex a = (-1) * matrix.v[1][0];
         Complex b = a * matrix.v[0][1];
@@ -127,7 +131,7 @@ Complex Matrice_patratica::det(Matrice_patratica matrix, int n)
                 }
                 subi++;
             }
-            determinant = determinant + Complex((pow(-1, x), 0) * matrix.v[0][x] * det(submatrix, n - 1));
+            determinant = determinant + Complex((std::pow(-1, x), 0) * matrix.v[0][x] * det(submatrix, n - 1));
         }
     }
     return determinant;

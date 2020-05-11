@@ -33,13 +33,13 @@ Matrice::Matrice(const Matrice &mat) {
 
 }
 
-Matrice& Matrice::operator =(Matrice& ob) {
+Matrice& Matrice::operator =(const Matrice&  ob) {
     if (this == &ob) return *this;
-    lin = ob.lin;
-    col = ob.col;
+    this->lin = ob.lin;
+    this->col = ob.col;
     for(int i = 0; i < col; i++)
         for (int j = 0; j < lin; j++)
-            v[i][j] = ob.v[i][j];
+            this->v[i][j] = ob.v[i][j];
     return *this;
 }
 

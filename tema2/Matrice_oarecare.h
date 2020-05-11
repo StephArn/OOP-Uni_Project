@@ -12,7 +12,7 @@ class Matrice_oarecare :public Matrice
 
     ~Matrice_oarecare() = default;
 
-    Matrice_oarecare& operator =(Matrice_oarecare& ob);
+    Matrice_oarecare& operator =(Matrice_oarecare& ob) = default;
 
     friend std::ostream& operator <<(std::ostream& output, const Matrice_oarecare& mat);
 

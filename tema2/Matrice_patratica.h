@@ -10,13 +10,15 @@
 class Matrice_patratica : public Matrice {
     int dim;
 public:
-    explicit Matrice_patratica(int dim = 1);
+    explicit Matrice_patratica(int col = 1) : Matrice(col, col) {};
 
     Matrice_patratica(const Matrice_patratica&) = default;;
 
     ~Matrice_patratica() = default;
 
-    Matrice_patratica& operator=( Matrice_patratica&);
+    Matrice_patratica& operator=(const Matrice_patratica& );
+
+    //friend void swap(Matrice_patratica& a, Matrice_patratica& b);
 
     friend std::ostream& operator <<(std::ostream& output, Matrice_patratica& mat);
 

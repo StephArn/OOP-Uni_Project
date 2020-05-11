@@ -1,6 +1,6 @@
 #include "Matrice_patratica.h"
 
-Matrice_patratica::Matrice_patratica(int dim) : dim(dim) {
+/*Matrice_patratica::Matrice_patratica(int dim) : dim(dim) {
     v = new Complex * [dim];
     for (int i = 0; i < dim; i++)
         v[i] = new Complex[dim];
@@ -9,12 +9,24 @@ Matrice_patratica::Matrice_patratica(int dim) : dim(dim) {
             v[i][j] = Complex(0, 0);
 }
 
-Matrice_patratica& Matrice_patratica:: operator=( Matrice_patratica& ob) {
+void swap(Matrice_patratica &a, Matrice_patratica& b) {
+    using std::swap;
+    swap(a.dim, b.dim);
+    swap(a.v, b.v);
+}
+
+Matrice_patratica Matrice_patratica:: operator=(Matrice_patratica ob) {
     swap(*this, ob);
     return *this;
 }
- 
-
+ */
+Matrice_patratica& Matrice_patratica:: operator=(Matrice_patratica const& ob)
+{
+    if (this != &ob) {
+        (*this).Matrice::operator=(ob);
+    }
+    return *this;
+}
 std::istream& operator >>(std::istream& input, Matrice_patratica& mat) {
 
     input >> mat.dim;
@@ -95,7 +107,13 @@ Complex Matrice_patratica::det(Matrice_patratica matrix, int n)
 
     Complex determinant;
     Matrice_patratica submatrix;
-    if (n == 2) return matrix.v[0][0] * matrix.v[1][1] + (-1) * matrix.v[1][0] * matrix.v[0][1];
+    if (n == 2) {
+        Complex a = (-1) * matrix.v[1][0];
+        Complex b = a * matrix.v[0][1];
+        Complex c = matrix.v[0][0] * matrix.v[1][1];
+        return b + c;
+
+    }
     else {
         for (int x = 0; x < n; x++) {
             int subi = 0;

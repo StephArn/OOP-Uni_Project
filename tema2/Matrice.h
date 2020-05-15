@@ -8,7 +8,7 @@ class Matrice
 {
 protected:
     Complex **v;
-    int lin, col;
+    int col, lin;
 
 public:
     explicit Matrice(int col = 1, int lin = 1, Complex nr = Complex(0, 0));

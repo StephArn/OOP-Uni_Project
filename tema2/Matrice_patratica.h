@@ -12,7 +12,7 @@ class Matrice_patratica : public Matrice {
 public:
     explicit Matrice_patratica(int col = 1) : Matrice(col, col,Complex(0,0)) {};
 
-    Matrice_patratica(const Matrice_patratica&) = default;;
+    Matrice_patratica(const Matrice_patratica&) = default;
 
     ~Matrice_patratica() = default;
 

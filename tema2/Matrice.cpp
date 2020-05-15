@@ -35,6 +35,11 @@ Matrice::Matrice(const Matrice &mat) {
 
 Matrice& Matrice::operator =(const Matrice&  ob) {
     if (this == &ob) return *this;
+    for (int i = 0; i < col; i++)
+        delete[] this->v[i];
+    delete[] this->v;
+    this->col = 0;
+    this->lin = 0;
     this->lin = ob.lin;
     this->col = ob.col;
     for(int i = 0; i < col; i++)
@@ -64,7 +69,7 @@ std::ostream& operator <<(std::ostream& output, const Matrice& mat) {
         output << '\n';
     }
     return output;
-}
+} 
 
 int Matrice::get_lin() {
     return lin;

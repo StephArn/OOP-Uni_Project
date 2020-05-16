@@ -2,12 +2,12 @@
 
 std::istream& operator >>(std::istream& input, Matrice_oarecare& mat) {
    
-    input >> mat.lin >> mat.col;
+    input >> mat.col >> mat.lin;
     mat.v = new Complex * [mat.col];
-    for (int i = 0; i < mat.lin; i++)
+    for (int i = 0; i < mat.col; i++)
         mat.v[i] = new Complex[mat.lin];
-    for (int i = 0; i < mat.lin; i++)
-        for (int j = 0; j < mat.col; j++)
+    for (int i = 0; i < mat.col; i++)
+        for (int j = 0; j < mat.lin; j++)
             input >> mat.v[i][j];
     return input;
 }

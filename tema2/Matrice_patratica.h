@@ -7,7 +7,8 @@
 
 
 
-class Matrice_patratica : public Matrice {
+class Matrice_patratica : public Matrice
+{
  
 public:
     explicit Matrice_patratica(int col = 1) : Matrice(col, col,Complex(0,0)) {};

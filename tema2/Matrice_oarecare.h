@@ -8,7 +8,7 @@
 class Matrice_oarecare :public Matrice
 {
 public:
-    explicit Matrice_oarecare(int col = 1, int lin = 1) : Matrice(col, lin, Complex(0, 0)) {};
+    explicit Matrice_oarecare(int col = 0, int lin = 0) : Matrice(col, lin, Complex(0, 0)) {};
 
     Matrice_oarecare(const Matrice_oarecare&) = default;
 

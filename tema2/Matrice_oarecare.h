@@ -12,7 +12,7 @@ public:
 
     Matrice_oarecare(const Matrice_oarecare&) = default;
 
-    ~Matrice_oarecare() = default;
+    ~Matrice_oarecare() override = default;
 
     Matrice_oarecare& operator =(Matrice_oarecare& ob) = default;
 

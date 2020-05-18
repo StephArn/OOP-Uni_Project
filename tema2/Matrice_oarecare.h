@@ -20,7 +20,7 @@ public:
 
     friend std::istream& operator >>(std::istream& input, Matrice_oarecare& mat);
 
-    int verifica_triunghiulara() override;
+    int verifica_triunghiulara();
 
     void verifica_diagonala() override;
 };

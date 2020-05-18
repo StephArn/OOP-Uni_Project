@@ -15,7 +15,7 @@ public:
 
     Matrice_patratica(const Matrice_patratica&) = default;
 
-    ~Matrice_patratica() = default;
+    ~Matrice_patratica() override = default;
 
     Matrice_patratica& operator=(const Matrice_patratica&) = default;
 

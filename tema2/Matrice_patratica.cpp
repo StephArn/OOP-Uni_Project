@@ -29,8 +29,18 @@ Matrice_patratica::Matrice_patratica(int dim, Complex nr) : dim{ dim } {
             v[i][j] = nr;
 }
 
-std::istream& operator >>(std::istream& input, Matrice_patratica& mat) {
+/*Matrice_patratica ::~Matrice_patratica() {
+    for (int i = 0; i < dim; i++)
+        delete[] v[i];
+    delete[] v;
+    dim = 0;
 
+}*/
+
+std::istream& operator >>(std::istream& input, Matrice_patratica& mat) {
+    for (int i = 0; i < mat.dim; i++)
+        delete[] mat.v[i];
+    delete[] mat.v;
     input >> mat.dim;
     mat.v = new Complex * [mat.dim];
     for (int i = 0; i < mat.dim; i++)

@@ -11,7 +11,7 @@ protected:
     int col, lin;
 
 public:
-    explicit Matrice(int col = 1, int lin = 1, Complex nr = Complex(0, 0));
+    explicit Matrice(int col = 0, int lin = 0, Complex nr = Complex(0, 0));
 
     Matrice(const Matrice& mat);
 

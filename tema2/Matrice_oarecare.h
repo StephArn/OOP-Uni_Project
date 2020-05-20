@@ -8,7 +8,7 @@
 class Matrice_oarecare :public Matrice
 {
 public:
-    explicit Matrice_oarecare(int col = 0, int lin = 0) : Matrice(col, lin) {};
+    explicit Matrice_oarecare(int lin = 0, int col = 0) : Matrice(lin, col) {};
 
     Matrice_oarecare(const Matrice_oarecare&) = default;
 
@@ -17,8 +17,6 @@ public:
     Matrice_oarecare& operator =(Matrice_oarecare& ob) = default;
 
     friend std::ostream& operator <<(std::ostream& output, const Matrice_oarecare& mat);
-
-    //friend std::istream& operator >>(std::istream& input, Matrice_oarecare& mat);
 
     int verifica_triunghiulara();
 

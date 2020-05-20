@@ -1,62 +1,12 @@
 #include "Matrice_patratica.h"
 #include <cmath>
 
-/*Matrice_patratica::Matrice_patratica(int dim) : dim(dim) {
-    v = new Complex * [dim];
-    for (int i = 0; i < dim; i++)
-        v[i] = new Complex[dim];
-    for (int i = 0; i < dim; i++)
-        for (int j = 0; j < dim; j++)
-            v[i][j] = Complex(0, 0);
-}
-void swap(Matrice_patratica &a, Matrice_patratica& b) {
-    using std::swap;
-    swap(a.dim, b.dim);
-    swap(a.v, b.v);
-}
-Matrice_patratica Matrice_patratica:: operator=(Matrice_patratica ob) {
-    swap(*this, ob);
-    return *this;
-}
-
-
-Matrice_patratica::Matrice_patratica(int dim, Complex nr) : dim{ dim } {
-    v = new Complex * [dim];
-    for (int i = 0; i < dim; i++)
-        v[i] = new Complex[dim];
-    for (int i = 0; i < dim; i++)
-        for (int j = 0; j < lin; j++)
-            v[i][j] = nr;
-}
-
-/*Matrice_patratica ::~Matrice_patratica() {
-    for (int i = 0; i < dim; i++)
-        delete[] v[i];
-    delete[] v;
-    dim = 0;
-
-}
-
-std::istream& operator >>(std::istream& input, Matrice_patratica& mat) {
-    for (int i = 0; i < mat.dim; i++)
-        delete[] mat.v[i];
-    delete[] mat.v;
-    input >> mat.dim;
-    mat.v = new Complex * [mat.dim];
-    for (int i = 0; i < mat.dim; i++)
-        mat.v[i] = new Complex[mat.dim];
-    for (int i = 0; i < mat.dim; i++)
-        for (int j = 0; j < mat.dim; j++)
-            input >> mat.v[i][j];
-    return input;
-}*/
-
 std::ostream& operator <<(std::ostream& output, Matrice_patratica& mat)
 {
     Matrice& ob = mat;
     output << ob;
 
-    Complex d = det(mat, mat.col);
+    Complex d = det(mat, mat.lin);
     output << "Determinantul este: ";
     output << d;
     output << '\n';
@@ -71,7 +21,6 @@ int Matrice_patratica::verifica_triunghiulara() {
             if (ok1 == 0) break;
             if (v[i][j] != Complex(0, 0)) {
                 ok1 = 0;
-                //break;
             }
 
         }
@@ -83,7 +32,6 @@ int Matrice_patratica::verifica_triunghiulara() {
             if (ok2 == 0) break;
             if (v[i][j] != Complex(0, 0)) {
                 ok2 = 0;
-                //break;
             }
 
         }
@@ -130,8 +78,7 @@ Complex det(Matrice_patratica& matrix, int n)
 
     Complex determinant;
     Matrice_patratica submatrix(n-1,n-1);
-    //submatrix.col = n - 1;
-    //submatrix.lin = n - 1;
+
     if (n == 2) {
         Complex a = (-1) * matrix.v[1][0];
         Complex b = a * matrix.v[0][1];

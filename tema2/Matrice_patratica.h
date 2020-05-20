@@ -9,9 +9,9 @@
 
 class Matrice_patratica : public Matrice
 {
-    int dim;
+    //int dim;
 public:
-    explicit Matrice_patratica(int dim = 1, Complex nr = Complex(0, 0));
+    explicit Matrice_patratica(int col = 0, int lin = 0) : Matrice(col, lin) {};
 
     Matrice_patratica(const Matrice_patratica&) = default;
 
@@ -23,7 +23,7 @@ public:
 
     friend std::ostream& operator <<(std::ostream& output, Matrice_patratica& mat);
 
-    friend std::istream& operator >>(std::istream& input, Matrice_patratica& mat);
+    //friend std::istream& operator >>(std::istream& input, Matrice_patratica& mat);
 
     int verifica_triunghiulara() override;
 

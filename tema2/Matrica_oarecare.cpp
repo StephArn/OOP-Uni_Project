@@ -1,6 +1,6 @@
 #include "Matrice_oarecare.h"
 
-std::istream& operator >>(std::istream& input, Matrice_oarecare& mat) {
+/*std::istream& operator >>(std::istream& input, Matrice_oarecare& mat) {
     for (int i = 0; i < mat.col; i++)
         delete[] mat.v[i];
     delete[] mat.v;
@@ -14,7 +14,7 @@ std::istream& operator >>(std::istream& input, Matrice_oarecare& mat) {
     return input;
 }
 
-/*Matrice_oarecare ::~Matrice_oarecare() {
+Matrice_oarecare ::~Matrice_oarecare() {
     for (int i = 0; i < col; i++)
         delete[] v[i];
     delete[] v;

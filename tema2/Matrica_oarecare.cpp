@@ -1,28 +1,5 @@
 #include "Matrice_oarecare.h"
 
-/*std::istream& operator >>(std::istream& input, Matrice_oarecare& mat) {
-    for (int i = 0; i < mat.col; i++)
-        delete[] mat.v[i];
-    delete[] mat.v;
-    input >> mat.col >> mat.lin;
-    mat.v = new Complex * [mat.col];
-    for (int i = 0; i < mat.col; i++)
-        mat.v[i] = new Complex[mat.lin];
-    for (int i = 0; i < mat.col; i++)
-        for (int j = 0; j < mat.lin; j++)
-            input >> mat.v[j][i];
-    return input;
-}
-
-Matrice_oarecare ::~Matrice_oarecare() {
-    for (int i = 0; i < col; i++)
-        delete[] v[i];
-    delete[] v;
-    col = 0;
-    lin = 0;
-
-}*/
-
 std::ostream& operator <<(std::ostream& output, const Matrice_oarecare& mat) {
     for (int i = 0; i < mat.lin; i++) {
         for (int j = 0; j < mat.col; j++)

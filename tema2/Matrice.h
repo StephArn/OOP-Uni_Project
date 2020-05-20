@@ -27,8 +27,6 @@ public:
 
     virtual void verifica_diagonala()=0;
 
-    //friend void swap(Matrice&, Matrice&);
-
     int get_lin();
     int get_col();
     Complex** get_mat();

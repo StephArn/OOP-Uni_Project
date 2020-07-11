@@ -20,7 +20,7 @@ jobs:
       run:
         sudo apt-get install -y valgrind cppcheck gcovr
     - name: make
-      run: gcc -Wall -Wextra -pedantic --coverage -fprofile-arcs -ftest-coverage -g -O0 tema2/*.cpp -o main -lm
+      run: g++ -Wall -Wextra -pedantic --coverage -fprofile-arcs -ftest-coverage -g -O0 tema2/*.cpp -o main -lm
     - name: cppcheck
       run:
         cppcheck --enable=all .

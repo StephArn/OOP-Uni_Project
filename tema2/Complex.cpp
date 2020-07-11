@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Complex.h"
 
+using namespace std;
+
 Complex::Complex(float re, float im)
 {
     real = re;

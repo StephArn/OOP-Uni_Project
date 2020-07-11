@@ -7,13 +7,13 @@ Complex::Complex(float re, float im)
     imaginar = im;
 }
 
-std::istream& operator>>(std::istream & in, Complex & nr)
+istream& operator>>(istream & in, Complex & nr)
 {
     in >> nr.real >> nr.imaginar;
     return in;
 }
 
-std::ostream& operator<<(std::ostream & out, Complex & nr)
+ostream& operator<<(ostream & out, Complex & nr)
 {
     out << nr.real << "+" << nr.imaginar << "i";
     return out;

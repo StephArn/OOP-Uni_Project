@@ -1,5 +1,6 @@
 #ifndef TEMAPOO2_COMPLEX_H
 #define TEMAPOO2_COMPLEX_H
+#include <iostream>
 
 class Complex
 {

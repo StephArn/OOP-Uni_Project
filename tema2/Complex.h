@@ -2,6 +2,8 @@
 #define TEMAPOO2_COMPLEX_H
 #include <iostream>
 
+using namespace std;
+
 class Complex
 {
     float real, imaginar;
@@ -18,8 +20,8 @@ public:
     //supraincarcare =:
     Complex& operator=(const Complex&) = default;
 
-    friend std::istream& operator >> (std::istream& in, Complex& nr);
-    friend std::ostream& operator << (std::ostream& out, Complex& nr);
+    friend istream& operator >> (istream& in, Complex& nr);
+    friend ostream& operator << (ostream& out, Complex& nr);
 
     friend Complex operator+(Complex a, Complex b);
     friend Complex operator*(Complex a, Complex b);

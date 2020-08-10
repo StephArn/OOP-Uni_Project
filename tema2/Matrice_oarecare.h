@@ -1,9 +1,10 @@
 #pragma once
-
-#ifndef TEMAPOO2_MATRICE_OARECARE_H
-#define TEMAPOO2_MATRICE_OARECARE_H
 #include <iostream>
 #include "Matrice.h"
+#include "Complex.h"
+#ifndef TEMAPOO2_MATRICE_OARECARE_H
+#define TEMAPOO2_MATRICE_OARECARE_H
+
 
 class Matrice_oarecare :public Matrice
 {

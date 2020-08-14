@@ -14,9 +14,6 @@ int main() {
    Complex c;
    c = a + b;
    c = a * b;
-   int x;
-   f >> x;
-   c = x * c;
    cout << c;
 
    auto *m = new Matrice_patratica();

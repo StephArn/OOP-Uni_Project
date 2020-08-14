@@ -10,12 +10,12 @@ ifstream f("intrare.txt");
 int main() {
 
    Complex a, b;
-   cin >> a >> b;
+   f >> a >> b;
    Complex c;
    c = a + b;
    c = a * b;
    int x;
-   cin >> x;
+   f >> x;
    c = x * c;
    cout << c;
 

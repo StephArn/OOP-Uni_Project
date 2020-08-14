@@ -14,7 +14,10 @@ int main() {
    Complex c;
    c = a + b;
    c = a * b;
-   cout << c;
+   cout << c << endl;
+   cout << a.getReal() << endl;
+   cout << b.getImaginar( << endl;
+   
 
    auto *m = new Matrice_patratica();
    auto* n = new Matrice_oarecare();

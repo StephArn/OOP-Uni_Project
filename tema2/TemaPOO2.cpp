@@ -17,7 +17,7 @@ int main() {
    int x;
    cin >> x;
    c = x * c;
-   cout << c << endl;
+   cout << c;
 
    auto *m = new Matrice_patratica();
    auto* n = new Matrice_oarecare();

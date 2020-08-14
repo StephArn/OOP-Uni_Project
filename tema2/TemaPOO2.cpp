@@ -8,6 +8,17 @@ using namespace std;
 ifstream f("intrare.txt");
 
 int main() {
+
+   Complex a, b;
+   cin >> a >> b;
+   Complex c = a;
+   c = a + b;
+   c = a * b;
+   int x;
+   cin >> x;
+   c = x * c;
+   cout << c << endl;
+
    auto *m = new Matrice_patratica();
    auto* n = new Matrice_oarecare();
    cout << "Matricea patratica:" << endl;

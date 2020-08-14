@@ -11,7 +11,7 @@ int main() {
 
    Complex a, b;
    cin >> a >> b;
-   Complex c = a;
+   Complex c;
    c = a + b;
    c = a * b;
    int x;

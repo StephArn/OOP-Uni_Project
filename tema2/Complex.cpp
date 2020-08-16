@@ -51,7 +51,10 @@ Complex operator+(Complex a, Complex b)
 
 Complex operator*(int a, Complex b)
 {
-    return Complex(b.real * a, b.imaginar * a);
+    Complex prod;
+    prod.setReal(b.real * a);
+    prod.setImaginar(b.imaginar * a);
+    return prod;
 }
 
 Complex operator*(Complex a, Complex b)
@@ -77,7 +80,7 @@ bool operator==(const Complex& a, const Complex& b)
     return (a.real == b.real and a.imaginar == a.imaginar);
 }
 
-bool operator!=(const Complex& a, const Complex& b) 
+bool operator!=(const Complex& a, const Complex& b)
 {
     return !(a == b);
 }

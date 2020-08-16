@@ -8,19 +8,17 @@ using namespace std;
 ifstream f("intrare.txt");
 
 int main() {
-
+   
    Complex a, b;
    f >> a >> b;
-   Complex c = a;
+   Complex c;
    c = a + b;
    c = a * b;
-   cout << c;
+   cout << c << endl;
+   cout << a.getReal() << endl;
+   cout << b.getImaginar( << endl;
+   cout << b.getImaginar() << endl;
 
-   int x;
-   f >> x;
-   Complex y;
-   y = x * c;
-   cout << y;
 
    auto *m = new Matrice_patratica();
    auto* n = new Matrice_oarecare();
@@ -39,6 +37,5 @@ int main() {
    n->verifica_diagonala();
    delete m;
    delete n;
-
    return 0;
 }

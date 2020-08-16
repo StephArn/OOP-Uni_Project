@@ -18,6 +18,11 @@ int main() {
     cout << a.getReal() << endl;
     cout << b.getImaginar() << endl;
 
+    if (a == b)
+        cout << a;
+    if (a != b)
+        cout << b;
+
     auto* m = new Matrice_patratica();
     auto* n = new Matrice_oarecare();
     cout << "Matricea patratica:" << endl;

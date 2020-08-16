@@ -18,13 +18,6 @@ int main() {
     cout << a.getReal() << endl;
     cout << b.getImaginar() << endl;
 
-    int x;
-    f >> x;
-    Complex y;
-    y = x * c;
-    cout << y;
-
-
     auto* m = new Matrice_patratica();
     auto* n = new Matrice_oarecare();
     cout << "Matricea patratica:" << endl;

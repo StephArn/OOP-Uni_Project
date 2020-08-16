@@ -269,18 +269,18 @@
             <td class="headerValue">tema2/Complex.cpp</td>
             <td></td>
             <td class="headerName">Lines:</td>
-            <td class="headerTableEntry">32</td>
+            <td class="headerTableEntry">36</td>
             <td class="headerTableEntry">46</td>
-            <td class="headerTableEntry" style="background-color:LightPink">69.6 %</td>
+            <td class="headerTableEntry" style="background-color:#FFFF55">78.3 %</td>
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2020-08-16 18:44:36</td>
+            <td class="headerValue">2020-08-16 19:19:03</td>
             <td></td>
             <td class="headerName">Branches:</td>
-            <td class="headerTableEntry">3</td>
+            <td class="headerTableEntry">5</td>
             <td class="headerTableEntry">12</td>
-            <td class="headerTableEntry" style="background-color:LightPink">25.0 %</td>
+            <td class="headerTableEntry" style="background-color:LightPink">41.7 %</td>
           </tr>
         </table>
       </td>
@@ -421,7 +421,7 @@
     <tr>
     <td align="right" class="lineno"><pre>18</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>2</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3</pre></td>
     <td align="left" class="src coveredLine"><pre>ostream&amp; operator&lt;&lt;(ostream&amp; out, Complex&amp; nr)</pre></td>
     </tr>
 
@@ -435,14 +435,14 @@
     <tr>
     <td align="right" class="lineno"><pre>20</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>2</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3</pre></td>
     <td align="left" class="src coveredLine"><pre>    out &lt;&lt; nr.real &lt;&lt; "+" &lt;&lt; nr.imaginar &lt;&lt; "i";</pre></td>
     </tr>
 
     <tr>
     <td align="right" class="lineno"><pre>21</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount coveredLine"><pre>2</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>3</pre></td>
     <td align="left" class="src coveredLine"><pre>    return out;</pre></td>
     </tr>
 
@@ -841,8 +841,8 @@
     <tr>
     <td align="right" class="lineno"><pre>78</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount uncoveredLine"><pre></pre></td>
-    <td align="left" class="src uncoveredLine"><pre>bool operator==(const Complex&amp; a, const Complex&amp; b)</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>2</pre></td>
+    <td align="left" class="src coveredLine"><pre>bool operator==(const Complex&amp; a, const Complex&amp; b)</pre></td>
     </tr>
 
     <tr>
@@ -854,9 +854,9 @@
 
     <tr>
     <td align="right" class="lineno"><pre>80</pre></td>
-    <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount uncoveredLine"><pre></pre></td>
-    <td align="left" class="src uncoveredLine"><pre>    return (a.real == b.real and a.imaginar == a.imaginar);</pre></td>
+    <td align="right" class="linebranch"><span class="takenBranch" title="Branch 0 taken 2 times">&check;</span><span class="notTakenBranch" title="Branch 1 not taken">&cross;</span><span class="takenBranch" title="Branch 2 taken 2 times">&check;</span><span class="notTakenBranch" title="Branch 3 not taken">&cross;</span><br/></td>
+    <td align="right" class="linecount coveredLine"><pre>2</pre></td>
+    <td align="left" class="src coveredLine"><pre>    return (a.real == b.real and a.imaginar == a.imaginar);</pre></td>
     </tr>
 
     <tr>
@@ -876,8 +876,8 @@
     <tr>
     <td align="right" class="lineno"><pre>83</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount uncoveredLine"><pre></pre></td>
-    <td align="left" class="src uncoveredLine"><pre>bool operator!=(const Complex&amp; a, const Complex&amp; b)</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>bool operator!=(const Complex&amp; a, const Complex&amp; b)</pre></td>
     </tr>
 
     <tr>
@@ -890,8 +890,8 @@
     <tr>
     <td align="right" class="lineno"><pre>85</pre></td>
     <td align="right" class="linebranch"></td>
-    <td align="right" class="linecount uncoveredLine"><pre></pre></td>
-    <td align="left" class="src uncoveredLine"><pre>    return !(a == b);</pre></td>
+    <td align="right" class="linecount coveredLine"><pre>1</pre></td>
+    <td align="left" class="src coveredLine"><pre>    return !(a == b);</pre></td>
     </tr>
 
     <tr>

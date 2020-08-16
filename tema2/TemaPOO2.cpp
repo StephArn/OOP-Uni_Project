@@ -16,7 +16,6 @@ int main() {
    c = a * b;
    cout << c << endl;
    cout << a.getReal() << endl;
-   cout << b.getImaginar( << endl;
    cout << b.getImaginar() << endl;
 
 

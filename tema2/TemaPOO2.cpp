@@ -11,13 +11,16 @@ int main() {
 
    Complex a, b;
    f >> a >> b;
-   Complex c;
+   Complex c = a;
    c = a + b;
    c = a * b;
-   cout << c << endl;
-   cout << a.getReal() << endl;
-   cout << b.getImaginar() << endl;
-   
+   cout << c;
+
+   int x;
+   f >> x;
+   Complex y;
+   y = x * c;
+   cout << y;
 
    auto *m = new Matrice_patratica();
    auto* n = new Matrice_oarecare();

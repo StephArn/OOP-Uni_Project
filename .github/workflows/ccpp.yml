@@ -13,14 +13,14 @@ jobs:
     defaults:
       run:
         shell: bash
-    
+        working-directory: tema2
     steps:
     - uses: actions/checkout@v2
     - name: dependencies
       run:
         sudo apt-get install -y valgrind cppcheck gcovr
     - name: make
-      run: g++ -Wall -Wextra -pedantic --coverage -fprofile-arcs -ftest-coverage -g -O0 tema2/*.cpp -o main -lm
+      run: g++ -Wall -Wextra -pedantic --coverage -fprofile-arcs -ftest-coverage -g -O0 *.cpp -o main -lm
     - name: cppcheck
       run:
         cppcheck --enable=all .
@@ -29,7 +29,7 @@ jobs:
         valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --error-exitcode=1 ./main
     - name: coverage
       run: |
-        gcov tema2/*.cpp
+        gcov *.cpp
         mkdir coverage/
         gcovr -r . --html --html-details -o coverage/coverage.html --print-summary
         mv -v coverage/  public/

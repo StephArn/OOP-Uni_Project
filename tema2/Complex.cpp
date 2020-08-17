@@ -49,9 +49,12 @@ Complex operator+(Complex a, Complex b)
     return sum;
 }
 
-Complex operator*(float a, Complex b)
+Complex operator*(int a, Complex b)
 {
-    return Complex(b.real * a, b.imaginar * a);
+    Complex prod;
+    prod.setReal(b.real * a);
+    prod.setImaginar(b.imaginar * a);
+    return prod;
 }
 
 Complex operator*(Complex a, Complex b)

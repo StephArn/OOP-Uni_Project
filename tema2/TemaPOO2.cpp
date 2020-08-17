@@ -26,8 +26,7 @@ int main() {
     cout << endl;
     
     cout << "Verificam operatorul * cu int: ";
-    int x;
-    f >> x;
+    int x = 3;
     Complex d;
     d = x * c;
     cout << d << endl;

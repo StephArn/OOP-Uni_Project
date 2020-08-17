@@ -36,6 +36,7 @@ int main() {
 
     auto* m = new Matrice_patratica();
     auto* n = new Matrice_oarecare();
+    
     cout << "Matricea patratica:" << endl;
     f >> *m;
     cout << *m;

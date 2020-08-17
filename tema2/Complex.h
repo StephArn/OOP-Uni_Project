@@ -7,6 +7,7 @@ using namespace std;
 class Complex
 {
     float real, imaginar;
+    
 public:
     // constructor de initializare:
     explicit Complex(float re = 0, float im = 0);

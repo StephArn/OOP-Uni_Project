@@ -52,5 +52,6 @@ int main() {
     n->verifica_diagonala();
     delete m;
     delete n;
+    f.close();
     return 0;
 }

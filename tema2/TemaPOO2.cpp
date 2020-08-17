@@ -14,14 +14,25 @@ int main() {
     Complex c;
     c = a + b;
     c = a * b;
-    cout << c << endl;
-    cout << a.getReal() << endl;
+    cout << "Verificam operatorii + si *: " << c << endl;
+    cout << "Verificam getterii: " << a.getReal() << endl;
     cout << b.getImaginar() << endl;
 
+    cout << "Verificam operatorii == si !=: ";
     if (a == b)
         cout << a;
     if (a != b)
         cout << b;
+    cout << endl;
+
+    cout << "Verificam operatorul * cu int: ";
+    int x;
+    f >> x;
+    Complex d;
+    d = x * c;
+    cout << d << endl;
+
+    cout << "Gata testarea." << endl;
 
     auto* m = new Matrice_patratica();
     auto* n = new Matrice_oarecare();

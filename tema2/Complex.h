@@ -25,7 +25,7 @@ public:
 
     friend Complex operator+(Complex a, Complex b);
     friend Complex operator*(Complex a, Complex b);
-    friend Complex operator*(float a, Complex b);
+    friend Complex operator*(int a, Complex b);
 
     friend bool operator==(const Complex& a, const Complex& b);
     friend bool operator!=(const Complex& a, const Complex& b);

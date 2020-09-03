@@ -1,25 +1,29 @@
 #include "Matrice_patratica.h"
 #include <cmath>
 
-std::ostream& operator <<(std::ostream& output, Matrice_patratica& mat)
+template <class T>
+
+std::ostream& operator <<(std::ostream& output, Matrice_patratica<T>& mat)
 {
-    Matrice& ob = mat;
+    Matrice<T>& ob = mat;
     output << ob;
 
-    Complex d = det(mat, mat.lin);
+    Complex<T> d = det(mat, mat.lin);
     output << "Determinantul este: ";
     output << d;
     output << '\n';
     return output;
 }
 
-int Matrice_patratica::verifica_triunghiulara() {
+template <class T>
+
+int Matrice_patratica<T>::verifica_triunghiulara() {
     int i, j, ok1 = 1, ok2 = 1, rez;
     for (i = 1; i < col; i++) {
         if (ok1 == 0) break;
         for (j = 0; j < i; j++) {
             if (ok1 == 0) break;
-            if (v[i][j] != Complex(0, 0)) {
+            if (v[i][j] != Complex<T>(0, 0)) {
                 ok1 = 0;
             }
 
@@ -30,7 +34,7 @@ int Matrice_patratica::verifica_triunghiulara() {
         if (ok2 == 0) break;
         for (j = i + 1; j < col; j++) {
             if (ok2 == 0) break;
-            if (v[i][j] != Complex(0, 0)) {
+            if (v[i][j] != Complex<T>(0, 0)) {
                 ok2 = 0;
             }
 
@@ -47,7 +51,9 @@ int Matrice_patratica::verifica_triunghiulara() {
     return rez;
 }
 
-void Matrice_patratica::verifica_diagonala() {
+template <class T>
+
+void Matrice_patratica<T>::verifica_diagonala() {
     int triunghiulara;
     triunghiulara = verifica_triunghiulara();
     if (triunghiulara == 3)
@@ -63,11 +69,13 @@ void Matrice_patratica::verifica_diagonala() {
     else std::cout << "Matricea nu este nici triunghiulara, nici diagonala.";
 }
 
-Complex det(Matrice_patratica& matrix, int n)
+template <class T>
+
+Complex<T> det(Matrice_patratica<T>& matrix, int n)
 {
     int rez = matrix.verifica_triunghiulara();
     if (rez > 0) {
-        Complex diag_princip(1, 0);
+        Complex<T> diag_princip(1, 0);
         int i;
         for (i = 0; i < n; i++)
         {
@@ -76,13 +84,13 @@ Complex det(Matrice_patratica& matrix, int n)
         return diag_princip;
     }
 
-    Complex determinant;
-    Matrice_patratica submatrix(n-1,n-1);
+    Complex<T> determinant;
+    Matrice_patratica<T> submatrix(n - 1, n - 1);
 
     if (n == 2) {
-        Complex a = (-1) * matrix.v[1][0];
-        Complex b = a * matrix.v[0][1];
-        Complex c = matrix.v[0][0] * matrix.v[1][1];
+        Complex<T> a = (-1) * matrix.v[1][0];
+        Complex<T> b = a * matrix.v[0][1];
+        Complex<T> c = matrix.v[0][0] * matrix.v[1][1];
         return b + c;
 
     }
@@ -99,7 +107,7 @@ Complex det(Matrice_patratica& matrix, int n)
                 }
                 subi++;
             }
-            determinant = determinant + Complex((std::pow(-1, x), 0) * matrix.v[0][x] * det(submatrix, n - 1));
+            determinant = determinant + Complex<T>((std::pow(-1, x), 0) * matrix.v[0][x] * det(submatrix, n - 1));
         }
     }
     return determinant;

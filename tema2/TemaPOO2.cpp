@@ -9,9 +9,9 @@ ifstream f("intrare.txt");
 
 int main() {
 
-    Complex a, b;
+    Complex<float> a, b;
     f >> a >> b;
-    Complex c;
+    Complex<float> c;
     c = a + b;
     c = a * b;
     cout << "Verificam operatorii + si *: " << c << endl;
@@ -24,19 +24,19 @@ int main() {
     if (a != b)
         cout << b;
     cout << endl;
-    
+
     cout << "Verificam operatorul * cu int: ";
     int x;
     f >> x;
-    Complex d;
-    d = x * c;
+    Complex<int> d, e;
+    f >> e;
+    d = x * e;
     cout << d << endl;
 
     cout << "Gata testarea." << endl;
 
-    auto* m = new Matrice_patratica();
-    auto* n = new Matrice_oarecare();
-    
+    auto* m = new Matrice_patratica<int>();
+    auto* n = new Matrice_oarecare<float>();
     cout << "Matricea patratica:" << endl;
     f >> *m;
     cout << *m;
@@ -52,8 +52,5 @@ int main() {
     n->verifica_diagonala();
     delete m;
     delete n;
-    
-    f.close();
-    
     return 0;
 }

@@ -3,63 +3,82 @@
 
 using namespace std;
 
-Complex::Complex(float re, float im)
+template<class T>
+
+Complex<T>::Complex(T re, T im)
 {
     real = re;
     imaginar = im;
 }
 
-istream& operator>>(istream& in, Complex& nr)
+template<class T>
+
+istream& operator>>(istream& in, Complex<T>& nr)
 {
     in >> nr.real >> nr.imaginar;
     return in;
 }
 
-ostream& operator<<(ostream& out, Complex& nr)
+template<class T>
+
+ostream& operator<<(ostream& out, Complex<T>& nr)
 {
     out << nr.real << "+" << nr.imaginar << "i";
     return out;
 }
 
-void Complex::setReal(float r)
+
+template<class T>
+void Complex<T>::setReal(T r)
 {
     real = r;
 }
+template<class T>
 
-void Complex::setImaginar(float i)
+void Complex<T>::setImaginar(T i)
 {
     imaginar = i;
 }
 
-float Complex::getReal()
+template<class T>
+
+float Complex<T>::getReal()
 {
     return real;
 }
 
-float Complex::getImaginar()
+template<class T>
+
+float Complex<T>::getImaginar()
 {
     return imaginar;
 }
 
-Complex operator+(Complex a, Complex b)
+template<class T>
+
+Complex<T> operator+(Complex<T> a, Complex<T> b)
 {
-    Complex sum;
+    Complex<T> sum;
     sum.setReal(a.real + b.real);
     sum.setImaginar(a.imaginar + b.imaginar);
     return sum;
 }
 
-Complex operator*(int a, Complex b)
+template<class T>
+
+Complex<T> operator*(T a, Complex<T> b)
 {
-    Complex prod;
+    Complex<T> prod;
     prod.setReal(b.real * a);
     prod.setImaginar(b.imaginar * a);
     return prod;
 }
 
-Complex operator*(Complex a, Complex b)
+template<class T>
+
+Complex<T> operator*(Complex<T> a, Complex<T> b)
 {
-    Complex prod;
+    Complex<T> prod;
     if (a.imaginar == 0) {
         prod.setReal(a.real * b.real);
         prod.setImaginar(a.real * b.imaginar);
@@ -75,12 +94,16 @@ Complex operator*(Complex a, Complex b)
     return prod;
 }
 
-bool operator==(const Complex& a, const Complex& b)
+template<class T>
+
+bool operator==(const Complex<T>& a, const Complex<T>& b)
 {
     return (a.real == b.real and a.imaginar == a.imaginar);
 }
 
-bool operator!=(const Complex& a, const Complex& b)
+template<class T>
+
+bool operator!=(const Complex<T>& a, const Complex<T>& b)
 {
     return !(a == b);
 }

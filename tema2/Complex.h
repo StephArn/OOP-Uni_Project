@@ -4,35 +4,33 @@
 
 using namespace std;
 
+template <class T>
 class Complex
 {
-    float real, imaginar;
-    
+    T real, imaginar;
 public:
     // constructor de initializare:
-    explicit Complex(float re = 0, float im = 0);
+    explicit Complex(T re = 0, T im = 0);
 
     // constructor de copiere:
-    Complex(const Complex& ob) = default;
+    Complex(const Complex<T>& ob) = default;
 
     //destuctor:
     ~Complex() = default;
 
     //supraincarcare =:
-    Complex& operator=(const Complex&) = default;
+    Complex<T>& operator=(const Complex<T>&) = default;
+    friend istream& operator >> (istream& in, Complex<T>& nr);
+    friend ostream& operator << (ostream& out, Complex<T>& nr);
+    friend Complex<T> operator+(Complex<T> a, Complex<T> b);
+    friend Complex<T> operator*(Complex<T> a, Complex<T> b);
+    friend Complex<T> operator*(T a, Complex<T> b);
 
-    friend istream& operator >> (istream& in, Complex& nr);
-    friend ostream& operator << (ostream& out, Complex& nr);
+    friend bool operator==(const Complex<T>& a, const Complex<T>& b);
+    friend bool operator!=(const Complex<T>& a, const Complex<T>& b);
 
-    friend Complex operator+(Complex a, Complex b);
-    friend Complex operator*(Complex a, Complex b);
-    friend Complex operator*(int a, Complex b);
-
-    friend bool operator==(const Complex& a, const Complex& b);
-    friend bool operator!=(const Complex& a, const Complex& b);
-
-    void setReal(float r);
-    void setImaginar(float i);
+    void setReal(T r);
+    void setImaginar(T i);
     float getReal();
     float getImaginar();
 };
